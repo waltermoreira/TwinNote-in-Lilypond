@@ -238,6 +238,60 @@ notes = \relative c {
       c[ ees d c]
       d[ c b a]
       g[ f ees d]
+
+      \up
+      ees \nl
+      \down
+      c[ g ees c]
+      \up
+      c''[ g ees] aes
+      \down
+      f,,[ aes c f]
+      \up
+      aes[ c ees]
+
+      \up
+      d \nl
+      \down
+      bes[ f d bes]
+      \up
+      bes''[ f d g]
+      \down
+      ees,,[ g bes ees]
+      \up
+      g[ bes d]
+
+      \up
+      c[ \nl a]
+      \down
+      gis[ a]
+      \up
+      c[ a]
+      \down
+      gis[ a]
+      \up
+      ees'[ c]
+      \down
+      g[ a]
+      \up
+      ees'[ c]
+      \down
+      g[ a]
+
+      \up
+      d[ c]
+      \down
+      fis,[ a]
+      \up
+      a'[ c,]
+      \down
+      fis,[ a]
+      \up
+      fis'[ c]
+      \down
+      d,[ a']
+      \up
+      c[ a fis d]
 }
 
 %{ TwinNote style staff, wholetone spacing between staff positions
