@@ -349,7 +349,7 @@ notes = \relative c {
          { \tn bes[ g bes d] } 
       \\ 
          { \tn << g,,4 g, >> } 
-      >>
+      >> \nl
       \down
       g'''16[ d bes g]
       <<
@@ -378,6 +378,24 @@ notes = \relative c {
          { \tn r16 g[ f' g,] }
       \\
          { \tn << b4 d, >> }
+      >>
+
+      <<
+         { ees'16[ c ees g] }
+      \\
+         { << c,,4 c, >> }
+      >> \nl
+      c'''16[ g ees c]
+      <<
+         { \tn r16 c'[ g e] c[ e g c] }
+      \\
+         { \tn << bes,,4 bes, >> }
+      >>
+
+      <<
+         { r16 c''[ c' c,] r c[ c' c,] r c[ bes' c,] r c[ bes' c,] }
+      \\
+         { \tn << aes4 f' >> << aes, f' >> << g, e' >> << g, e' >> }
       >>
 }
 
