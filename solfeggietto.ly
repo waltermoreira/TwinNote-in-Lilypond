@@ -200,6 +200,13 @@ nl = {
       \mark "C"
 }
 
+tn = {
+  \override Staff.StaffSymbol #'line-positions = #'(10 8 4 2 -2 -4 -8 -10 -14 -16 -20 -22)
+  \override NoteHead #'stem-attachment = #stem-adjuster
+  \override NoteHead #'stencil = #stencil-notehead
+  \override Stem #'stencil = #doubleStemmer
+}
+
 notes = \relative c {
       \autoBeamOff
 
@@ -338,24 +345,16 @@ notes = \relative c {
       d[ c bes a]
 
       \up
-      << { 
-  \override Staff.StaffSymbol #'line-positions = #'(10 8 4 2 -2 -4 -8 -10 -14 -16 -20 -22)
-  \override NoteHead #'stem-attachment = #stem-adjuster
-  \override NoteHead #'stencil = #stencil-notehead
-  \override Stem #'stencil = #doubleStemmer
-bes[ g bes d] } \\ {
-  \override Staff.StaffSymbol #'line-positions = #'(10 8 4 2 -2 -4 -8 -10 -14 -16 -20 -22)
-  \override NoteHead #'stem-attachment = #stem-adjuster
-  \override NoteHead #'stencil = #stencil-notehead
-  \override Stem #'stencil = #doubleStemmer
-
- << g,,4 g, >> } >>
+      << 
+         { \tn bes[ g bes d] } 
+      \\ 
+         { \tn << g,,4 g, >> } 
+      >>
 }
 
 %{ TwinNote style staff, wholetone spacing between staff positions
 Note the special scheme function used for staffLineLayoutFunction  
 %}
-
 
 \new Staff \with {
   \remove "Accidental_engraver"
@@ -366,10 +365,7 @@ Note the special scheme function used for staffLineLayoutFunction
   clefPosition = #(+ -6 4)
 }
 {
-  \override Staff.StaffSymbol #'line-positions = #'(10 8 4 2 -2 -4 -8 -10 -14 -16 -20 -22)
-  \override NoteHead #'stem-attachment = #stem-adjuster
-  \override NoteHead #'stencil = #stencil-notehead
-  \override Stem #'stencil = #doubleStemmer
+  \tn
   \notes 
 }
 
