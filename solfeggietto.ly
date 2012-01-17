@@ -350,6 +350,35 @@ notes = \relative c {
       \\ 
          { \tn << g,,4 g, >> } 
       >>
+      \down
+      g'''16[ d bes g]
+      <<
+         { \tn r16 g'[ d b] }
+      \\
+         { \tn << f,4 f, >> }
+      >>
+      g''16[ b d g]
+
+      <<
+         { \tn r16 g,[ g' g,] }
+      \\
+         { \tn << c4 ees, >> }
+      >>
+      <<
+         { \tn r16 g16[ g' g,] }
+      \\
+         { \tn << c4 ees, >> }
+      >>
+      <<
+         { \tn r16 g[ f' g,] }
+      \\
+         { \tn << b4 d, >> }
+      >>
+      <<
+         { \tn r16 g[ f' g,] }
+      \\
+         { \tn << b4 d, >> }
+      >>
 }
 
 %{ TwinNote style staff, wholetone spacing between staff positions
