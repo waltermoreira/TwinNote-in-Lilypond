@@ -1,12 +1,11 @@
 \version "2.14.0"
 
 \header {
-  title = "Solfeggietto"
-  composer = "C.P.E. Bach"
+  tagline = ""
 }
- 
+
 \paper {
-  #(set-paper-size "a4")
+  #(set-paper-size "a10")
 }
 
 %Customizing note head stencils based on pitch
@@ -208,211 +207,11 @@ tn = {
 }
 
 notes = \relative c {
+      \time 1/4
       \autoBeamOff
 
       \up
-      ees16-2
-      \down
-      c-5[ ees-3 g]
-      \up
-      c-2[ ees-4 d c] b
-      \down
-      g[ b d]
-      \up
-      g[ f ees d]      
-
-      \up
-      ees
-      \down
-      c[ ees g]
-      \up
-      c[ ees d c]
-      d[ c b a]
-      g[ f ees d]
-
-      \up
-      ees  \nl
-      \down
-      c[ ees g]
-      \up
-      c[ ees d c] b
-      \down
-      g[ b d]
-      \up
-      g[ f ees d]      
-
-      \up
-      ees
-      \down
-      c[ ees g]
-      \up
-      c[ ees d c]
-      d[ c b a]
-      g[ f ees d]
-
-      \up
-      ees \nl
-      \down
-      c[ g ees c]
-      \up
-      c''[ g ees] aes
-      \down
-      f,,[ aes c f]
-      \up
-      aes[ c ees]
-
-      \up
-      d \nl
-      \down
-      bes[ f d bes]
-      \up
-      bes''[ f d g]
-      \down
-      ees,,[ g bes ees]
-      \up
-      g[ bes d]
-
-      \up
-      c[ \nl a]
-      \down
-      gis[ a]
-      \up
-      c[ a]
-      \down
-      gis[ a]
-      \up
-      ees'[ c]
-      \down
-      g[ a]
-      \up
-      ees'[ c]
-      \down
-      g[ a]
-
-      \up
-      d[ c]
-      \down
-      fis,[ a]
-      \up
-      a'[ c,]
-      \down
-      fis,[ a]
-      \up
-      fis'[ c]
-      \down
-      d,[ a']
-      \up
-      c[ a fis d]
-
-      \up
-      bes' \nl
-      \down
-      g,,[ bes d]
-      \up
-      g[ bes a g] fis
-      \down
-      d[ fis a]
-      \up
-      d[ c bes a]
-
-      \up
-      bes \nl
-      \down
-      g[ bes d]
-      \up
-      g[ bes a g]
-      a[ g fis e]
-      d[ c bes a]
-
-      \up
-      bes \nl
-      \down
-      g[ bes d]
-      \up
-      g[ bes a g] fis
-      \down
-      d[ fis a]
-      \up
-      d[ c bes a]
-
-      \up
-      bes \nl
-      \down
-      g[ bes d]
-      \up
-      g[ bes a g]
-      a[ g fis e]
-      d[ c bes a]
-
-      \up
-      << 
-         { \tn bes[ g bes d] } 
-      \\ 
-         { \tn << g,,4 g, >> } 
-      >> \nl
-      \down
-      g'''16[ d bes g]
-      <<
-         { \tn r16 g'[ d b] }
-      \\
-         { \tn << f,4 f, >> }
-      >>
-      g''16[ b d g]
-
-      <<
-         { \tn r16 g,[ g' g,] }
-      \\
-         { \tn << c4 ees, >> }
-      >>
-      <<
-         { \tn r16 g16[ g' g,] }
-      \\
-         { \tn << c4 ees, >> }
-      >>
-      <<
-         { \tn r16 g[ f' g,] }
-      \\
-         { \tn << b4 d, >> }
-      >>
-      <<
-         { \tn r16 g[ f' g,] }
-      \\
-         { \tn << b4 d, >> }
-      >>
-
-      <<
-         { ees'16[ c ees g] }
-      \\
-         { << c,,4 c, >> }
-      >> \nl
-      c'''16[ g ees c]
-      <<
-         { \tn r16 c'[ g e] c[ e g c] }
-      \\
-         { \tn << bes,,4 bes, >> }
-      >>
-
-      <<
-         { r16 c''[ c' c,] r c[ c' c,] r c[ bes' c,] r c[ bes' c,] }
-      \\
-         { \tn << aes4 f' >> << aes, f' >> << g, e' >> << g, e' >> }
-      >>
-
-      \down
-      aes16 \nl f,,,[ aes c]
-      \up
-      f[ aes g f] e
-      \down
-      c[ e g]
-      \up
-      c[ bes aes g]
-
-      \up
-      aes
-      \down
-      f[ aes c]
-      \up 
-      f[ aes g f] g[ f e d] c[ bes aes g]
+      c4
 }
 
 %{ TwinNote style staff, wholetone spacing between staff positions
