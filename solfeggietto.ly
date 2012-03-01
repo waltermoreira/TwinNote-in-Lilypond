@@ -12,7 +12,24 @@
 %Customizing note head stencils based on pitch
 %Defining stencils
 
-upTriangle =
+upTriangleEmpty =
+#(ly:make-stencil 
+	(list 'embedded-ps
+    "gsave
+      currentpoint translate
+      newpath
+      -.1875 -.5 moveto
+      .65625 .5 lineto
+      1.5 -.5 lineto
+      closepath
+      0.19 setlinewidth
+      stroke
+      grestore" )
+    (cons -.1875 1.5)
+    (cons -.5 .5)
+)
+
+upTriangleFull =
 #(ly:make-stencil 
 	(list 'embedded-ps
     "gsave
@@ -28,7 +45,7 @@ upTriangle =
     (cons -.5 .5)
 )
 
-downTriangle =
+downTriangleEmpty =
 #(ly:make-stencil 
 	(list 'embedded-ps
     "gsave
@@ -63,6 +80,40 @@ downTriangle =
     (cons -.5 .5)
 )
 
+downTriangleFull =
+#(ly:make-stencil 
+	(list 'embedded-ps
+    "gsave
+      currentpoint translate
+
+      newpath
+      .08 .34 moveto
+      .65625 -.4 lineto
+      1.2325 .34 lineto
+      closepath
+      0.12 setlinewidth
+      stroke      
+
+      newpath
+      -.0775 .43 moveto
+      .65625 -.43 lineto
+      1.39 .43 lineto
+      closepath
+      0.1 setlinewidth
+      stroke      
+	  
+	  newpath
+      -.1675 .48 moveto
+      .65625 -.48 lineto
+      1.48 .48 lineto
+      closepath
+      fill
+
+      grestore" )
+    (cons -.1875 1.5)
+    (cons -.5 .5)
+)
+
 upTriLgr = 
 #(ly:make-stencil 
 	(list 'embedded-ps
@@ -73,7 +124,8 @@ upTriLgr =
       .65625 .5 lineto
       1.5 -.5 lineto
       closepath
-      fill
+      0.19 setlinewidth
+      stroke
 	  newpath
 	  -.5 0 moveto
 	  1.8 0 lineto
@@ -128,7 +180,10 @@ downTriLgr =
          	(case s
 		((11) upTriLgr)
 		((0) downTriLgr)
-		(else (if (= (remainder semitone 2) 0) downTriangle upTriangle))
+                ((2 4) downTriangleEmpty)
+                ((5 7 9) upTriangleEmpty)
+                ((1 3) upTriangleFull)
+                ((6 8 10) downTriangleFull)
 	))
 )
 
@@ -413,6 +468,9 @@ notes = \relative c {
       f[ aes c]
       \up 
       f[ aes g f] g[ f e d] c[ bes aes g]
+
+      c cis d dis e f fis g gis a ais b c
+      c cis d dis e f fis g gis a ais b c
 }
 
 %{ TwinNote style staff, wholetone spacing between staff positions
