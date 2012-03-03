@@ -267,87 +267,88 @@ notes = {
       \autoBeamOff
 
       <<
-        { \tn bes'' a'' g'' }
+        { \tn bes''-4 a'' g'' }
       \\
-        { \tn g2. }
+        { \tn g2.-2 }
       >> \nl
       <<
-        { \tn a''4 d'' d'' }
+        { \tn a''4-3 d''-1 d'' }
       \\
         { \tn f2. }
       >> \nl
       <<
-        { \tn g''4  g'8[ a' bes' c''] }
+        { \tn g''4-5  g'8-1[ a' bes'-3 c''-1] }
       \\
         { \tn ees2. }
       >>  
       <<
-        { \tn d''2. }
+        { \tn d''2.-2 }
       \\
-        { \tn d4 d'8 c' bes a }
+        { \tn d4-5 d'8-1 c' bes a-4 }
       >>  
       <<
-        { \tn ees''4 f''8 ees'' d'' c'' }
+        { \tn ees''4-3 f''8 ees'' d'' c'' }
       \\
-        { \tn << g2 bes >> a4 }
+        { \tn << g2-5 bes-3 >> a4-4 }
       >>  
       <<
-        { \tn d''4 ees''8 d'' c'' bes' }
+        { \tn d''4-2 ees''8 d'' c''-1 bes'-2 }
       \\
-        { \tn bes2 g4 }
+        { \tn bes2-3 g4-5 }
       >>  
 
       <<
-        { \tn c''4 d''8 c'' bes' c'' }
+        { \tn c''4-3 d''8-4 c'' bes' c'' }
       \\
-        { \tn a4 fis g }
+        { \tn a4-1 fis-3 g-2 }
       >> \nl 
       <<
-        { \tn a'2. }
+        { \tn a'2.-1 }
       \\
-        { \tn d4 d'8 c' bes a }
-      >>  
+        { \tn d4-5 d'8-1 c' bes-3 a-1 }
+      >>  \nl
       <<
-        { \tn bes''4 a'' g'' }
+        { \tn bes''4-4 a'' g'' }
       \\
-        { \tn g2. }
-      >>
+        { \tn g2.-2 }
+      >> \nl
       <<
-        { \tn a''4 d'' d'' }
+        { \tn a''4-3 d''-1 d'' }
       \\
         { \tn f2. }
-      >>
+      >> \nl
       <<
-        { \tn g''4 g'8 a' bes' c'' }
+        { \tn g''4-5 g'8-1 a' bes'-3 c''-1 }
       \\
         { \tn ees2. }
-      >>
-      <<
-        { \tn d''2. }
-      \\
-        { \tn d4 d'8 c' b a }
       >> \nl
       <<
-        { \tn f''4 g''8 f'' ees'' d'' }
+        { \tn d''2.-2 }
       \\
-        { \tn << b2 d' >> g4 }
+        { \tn d4-5 d'8-1 c' b a-4 }
       >> \nl
       <<
-        { \tn ees''4 f''8 ees'' d'' c' }
+        { \tn f''4-4 g''8 f'' ees'' d'' }
       \\
-        { \tn c'4 a f }
+        { \tn << b2-3 d'-1 >> g4-5 }
       >> \nl
       <<
-        { \tn d''4 g'' c' }
+        { \tn ees''4-3 f''8 ees'' d'' c' }
       \\
-        { \tn bes4 ees << f a >> }
+        { \tn c'4-1 a-3 f-5 }
       >> \nl
       <<
-        { \tn << d'2. f' bes' >> }
+        { \tn d''4-2 g''-5 c'-1 }
       \\
-        { \tn bes4 bes,2 }
+        { \tn bes4-2 ees-5 << f-3 a-1 >> }
+      >> \nl
+      <<
+        { \tn << d'2.-1 f'-2 bes'-4 >> }
+      \\
+        { \tn bes4-1 bes,2-5 }
       >> \nl
 
+      \bar "|."
 }
 
 %{ TwinNote style staff, wholetone spacing between staff positions
