@@ -1,4 +1,8 @@
+#!/usr/bin/env python
+
+import sys
 import os
+import subprocess
 
 def _render(notes):
     for bar in notes:
@@ -22,6 +26,7 @@ class Renderer(object):
     def __init__(self):
         d = os.path.dirname(os.path.abspath(__file__))
         self.template = open(os.path.join(d, self.TEMPLATE_FILE)).read()
+        self.job_name = None
         self.title = '(self.title)'
         self.composer = '(self.composer)'
         self.tempo = '4/4'
@@ -36,15 +41,15 @@ class Renderer(object):
         self._notes = value
         self._rendered_notes = render(value)
         
-    def render(self, to):
-        with open(to, 'w') as out:
+    def render(self):
+        with open(self.job_name+'.ly', 'w') as out:
             out.write(self.template %{'title': self.title,
                                       'composer': self.composer,
                                       'tempo': self.tempo,
                                       'notes': self.notes})
         
-    def read(self, fname):
-        f = open(fname)
+    def read(self):
+        f = open(self.job_name + '.txt')
         self._get_metadata(f)
         self.notes = self._get_notes(f)
 
@@ -71,3 +76,16 @@ class Renderer(object):
             else:
                 yield (line,)
 
+    def lily(self):
+        subprocess.call(['lilypond', self.job_name + '.ly'])
+
+    def do_it(self):
+        if self.job_name is not None:
+            self.read()
+            self.lily()
+
+if __name__ == '__main__':
+    renderer = Renderer()
+    renderer.job_name = sys.argv[1]
+    renderer.do_it()
+    
