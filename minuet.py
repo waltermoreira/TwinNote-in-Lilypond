@@ -1,3 +1,4 @@
+import os
 
 notes = [
     [" bes''-4 a'' g'' ",
@@ -55,7 +56,8 @@ class Renderer(object):
     TEMPLATE_FILE = 'tnpiano.ly.template'
     
     def __init__(self):
-        self.template = open(self.TEMPLATE_FILE).read()
+        d = os.path.dirname(os.path.abspath(__file__))
+        self.template = open(os.path.join(d, self.TEMPLATE_FILE)).read()
         self.title = '(self.title)'
         self.composer = '(self.composer)'
         self.tempo = '4/4'
