@@ -43,3 +43,31 @@ class Renderer(object):
                                       'tempo': self.tempo,
                                       'notes': self.notes})
         
+    def read(self, fname):
+        f = open(fname)
+        self._get_metadata(f)
+        self.notes = self._get_notes(f)
+
+    def _get_metadata(self, stream):
+        for line in stream:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            if line.startswith('---'):
+                break
+            data = line.split(':')
+            key = data[0].strip()
+            value = ''.join(data[1:]).strip()
+            setattr(self, key, value)
+
+    def _get_notes(self, stream):
+        for line in stream:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            next_line = next(stream, '').strip()
+            if next_line:
+                yield (line, next_line)
+            else:
+                yield (line,)
+
