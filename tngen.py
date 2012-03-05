@@ -82,6 +82,7 @@ class Renderer(object):
     def do_it(self):
         if self.job_name is not None:
             self.read()
+            self.render()
             self.lily()
 
 if __name__ == '__main__':
