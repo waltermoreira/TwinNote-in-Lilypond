@@ -262,6 +262,17 @@ tn = {
   \override Stem #'stencil = #doubleStemmer
 }
 
+small = #(lambda (grob) (ly:stencil-scale (stencil-notehead grob) 0.7 0.7))
+
+acci =
+#(define-music-function
+     (parser location note)
+     (ly:music?)
+   #{
+     \once \override NoteHead #'stencil = #small
+     \acciaccatura $note
+   #})
+
 notes = {
       \time %(tempo)s
       \autoBeamOff
