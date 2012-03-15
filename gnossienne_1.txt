@@ -1,0 +1,11 @@
+title: Gnossienne 1
+composer: Erik Satie
+tempo: 4/4
+
+---
+
+r4 c''8[ ees''] d''4 c''
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+\acci ais a4 b c d
