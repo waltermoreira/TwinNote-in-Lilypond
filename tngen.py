@@ -3,18 +3,14 @@
 import sys
 import os
 import subprocess
+import itertools
 
 def _render(notes):
     for bar in notes:
         if len(bar) == 1:
             yield bar[0]
         else:
-            top, bottom = bar
-            yield '<< { \\tn '
-            yield top
-            yield ' }\n\\\\ { \\tn '
-            yield bottom
-            yield '} >> \\nl\n'
+            yield '<< { \\tn ' + ' }\n\\\\ { \\tn '.join(bar) + '} >> \\nl\n'
 
 def render(notes):
     return ''.join(_render(notes))
@@ -66,15 +62,11 @@ class Renderer(object):
             setattr(self, key, value)
 
     def _get_notes(self, stream):
-        for line in stream:
-            line = line.strip()
-            if not line or line.startswith('#'):
-                continue
-            next_line = next(stream, '').strip()
-            if next_line:
-                yield (line, next_line)
-            else:
-                yield (line,)
+        def valid_line(x):
+            # ignore blanks and comment lines
+            x = x.strip()
+            return x and not x.startswith('#')
+        return [tuple(y) for (x,y) in itertools.groupby(stream, valid_line) if x]
 
     def lily(self):
         subprocess.call(['lilypond', self.job_name + '.ly'])
