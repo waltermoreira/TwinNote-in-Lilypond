@@ -4,8 +4,58 @@ tempo: 4/4
 
 ---
 
-r4 c''8[ ees''] d''4 c''
+r4 c''8[( ees''] d''4 c''
 r4 << aes2 c' f' >> << aes4 c' f' >>
 f,1
 
-\acci ais a4 b c d
+\acci c''8 b'2 \acci c''8 b'2)
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+r4 c''8[( ees''] d''4 c''
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+\acci e''8 f''2 \acci e''8 f''2)
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+r4 c''8[( ees''] d''4 c''
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+\acci c''8 b'2 \acci aes'8 g'2
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+\acci f'8 g'4 \acci f'8 g'2 ~ g'8) r8
+r4 <<  ees2 g c' >> << ees4 g c' >>
+c1
+
+\acci aes'8 g'4( \acci g'8 f'4 ~ f'2 ~
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+f'1)
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+\bar ":|:"
+
+\acci aes'8 bes'2 \acci aes'8 g'2
+r4 << f2 bes des' >> << f4 bes des' >>
+bes,,1
+
+\acci aes'8 bes'2 \acci aes'8 g'2
+r4 << f2 bes des' >> << f4 bes des' >>
+bes,,1
+
+\acci aes'8 g'4 \acci g'8 f'4 ~ f'2 ~
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+f'1
+r4 << aes2 c' f' >> << aes4 c' f' >>
+f,1
+
+\bar ":|:"
