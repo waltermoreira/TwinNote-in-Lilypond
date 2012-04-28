@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as et
 import re
+import os
+import sys
 
 DURATIONS = {
     'whole': 1,
@@ -79,3 +81,13 @@ def _xml2tn(tree):
 
 def xml2tn(tree):
     return '\n'.join(_xml2tn(tree))
+
+def convert(filename):
+    name, _ = os.path.splitext(filename)
+    xml = open(filename).read()
+    with open(name + '.txt', 'w') as f:
+        tree = et.fromstring(xml)
+        f.write(xml2tn(tree))
+
+if __name__ == '__main__':
+    convert(sys.argv[1])
