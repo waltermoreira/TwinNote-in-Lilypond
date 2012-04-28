@@ -43,8 +43,9 @@ def tree2voices(tree):
             voice = note.find('.//voice').text
             chord = 'chord' if note.find('.//chord') is not None else None
             m.setdefault(voice, [])
+            grace = '\\acci ' if note.find('.//grace') is not None else ''
             note = Note(pitch=pitch, octave=octave, duration=duration,
-                        chord=chord)
+                        chord=chord, grace=grace)
             m[voice].append(note)
         yield m
 
@@ -58,7 +59,7 @@ def note2tn(note):
         oct = "'"*oct_num
     else:
         oct = ''
-    return '%s%s%s' %(note.pitch.lower(), oct, DURATIONS[note.duration])
+    return '%s%s%s%s' %(note.grace, note.pitch.lower(), oct, DURATIONS[note.duration])
     
 def _voice2tn(notes):
     for note in notes:
@@ -93,6 +94,10 @@ def convert(filename):
     name, _ = os.path.splitext(filename)
     xml = open(filename).read()
     with open(name + '.txt', 'w') as f:
+        f.write('title: Test\n')
+        f.write('composer: foo\n')
+        f.write('tempo: 4/4\n')
+        f.write('\n---\n\n')
         tree = et.fromstring(xml)
         f.write(xml2tn(tree))
 
