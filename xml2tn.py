@@ -6,7 +6,11 @@ DURATIONS = {
     'half': 2,
     'quarter': 4,
     'eighth': 8,
-    'sixteenth': 16}
+    'sixteenth': 16,
+    '16th': 16,
+    '32nd': 32,
+    '64th': 64
+}
     
 def tree2voices(tree):
     measures = tree.findall('.//measure')
@@ -66,10 +70,12 @@ def __voice2tn(notes):
 def voice2tn(notes):
     return ' '.join(__voice2tn(notes))
 
-def xml2tn(tree):
+def _xml2tn(tree):
     voices = tree2voices(tree)
     for measure in voices:
         for voice in measure:
-            print voice2tn(measure[voice])
-        print
-        
+            yield voice2tn(measure[voice])
+        yield '\n'
+
+def xml2tn(tree):
+    return '\n'.join(_xml2tn(tree))
