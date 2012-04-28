@@ -8,7 +8,7 @@ DURATIONS = {
     'eighth': 8,
     'sixteenth': 16}
     
-def xml2tn(tree):
+def tree2voices(tree):
     measures = tree.findall('.//measure')
     for measure in measures:
         notes = measure.findall('.//note')
@@ -65,3 +65,11 @@ def __voice2tn(notes):
 
 def voice2tn(notes):
     return ' '.join(__voice2tn(notes))
+
+def xml2tn(tree):
+    voices = tree2voices(tree)
+    for measure in voices:
+        for voice in measure:
+            print voice2tn(measure[voice])
+        print
+        
