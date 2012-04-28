@@ -13,6 +13,12 @@ DURATIONS = {
     '32nd': 32,
     '64th': 64
 }
+
+class Note(object):
+
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
+        
     
 def tree2voices(tree):
     measures = tree.findall('.//measure')
@@ -37,25 +43,26 @@ def tree2voices(tree):
             voice = note.find('.//voice').text
             chord = 'chord' if note.find('.//chord') is not None else None
             m.setdefault(voice, [])
-            m[voice].append((pitch, octave, duration, chord))
+            note = Note(pitch=pitch, octave=octave, duration=duration,
+                        chord=chord)
+            m[voice].append(note)
         yield m
 
 def note2tn(note):
-    pitch, octave, duration, chord = note
-    if pitch == 'rest':
-        return 'r%d' %(DURATIONS[duration],)
-    oct_num = octave - 3
+    if note.pitch == 'rest':
+        return 'r%d' %(DURATIONS[note.duration],)
+    oct_num = note.octave - 3
     if oct_num < 0:
         oct = ','*(-oct_num)
     elif oct_num > 0:
         oct = "'"*oct_num
     else:
         oct = ''
-    return '%s%s%s' %(pitch.lower(), oct, DURATIONS[duration])
+    return '%s%s%s' %(note.pitch.lower(), oct, DURATIONS[note.duration])
     
 def _voice2tn(notes):
     for note in notes:
-        if note[-1] is not None:
+        if note.chord is not None:
             yield '+'
         else:
             yield '*'
