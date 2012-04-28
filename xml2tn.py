@@ -47,16 +47,22 @@ def tree2voices(tree):
             m.setdefault(voice, [])
             grace = '\\acci ' if note.find('.//grace') is not None else ''
             tie = note.find('.//tie')
+            dot = note.find('.//dot')
             note = Note(pitch=pitch, octave=octave, duration=duration,
                         chord=chord, grace=grace)
             if tie is not None and tie.attrib['type'] == 'start':
                 note.tie = True
+            if dot is not None:
+                note.dot = True
             m[voice].append(note)
         yield m
 
 def note2tn(note):
+    dur = str(DURATIONS[note.duration])
+    if note.dot is not None:
+        dur += '.'
     if note.pitch == 'rest':
-        return 'r%d' %(DURATIONS[note.duration],)
+        return 'r%s' %(dur,)
     oct_num = note.octave - 3
     if oct_num < 0:
         oct = ','*(-oct_num)
@@ -65,7 +71,7 @@ def note2tn(note):
     else:
         oct = ''
     tie = ' ~ ' if note.tie else ''
-    return '%s%s%s%s%s' %(note.grace, note.pitch.lower(), oct, DURATIONS[note.duration], tie)
+    return '%s%s%s%s%s' %(note.grace, note.pitch.lower(), oct, dur, tie)
     
 def _voice2tn(notes):
     for note in notes:
